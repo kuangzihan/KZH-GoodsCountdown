@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C78C3BF720C534AA0019F969 /* KZHCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C3BF620C534AA0019F969 /* KZHCountdown.swift */; };
-		C78C3BF920C5354D0019F969 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C3BF820C5354D0019F969 /* UIView+Extension.swift */; };
-		C78C3BFB20C539DB0019F969 /* Date+Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C3BFA20C539DB0019F969 /* Date+Conversion.swift */; };
+		C78C3BFD20C66A090019F969 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C3BFC20C66A090019F969 /* SecondViewController.swift */; };
+		C78C3C0220C66E9C0019F969 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C3BFF20C66E9C0019F969 /* UIView+Extension.swift */; };
+		C78C3C0320C66E9C0019F969 /* Date+Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C3C0020C66E9C0019F969 /* Date+Conversion.swift */; };
+		C78C3C0420C66E9C0019F969 /* KZHCountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C3C0120C66E9C0019F969 /* KZHCountdownView.swift */; };
+		C78C3C0620C66FCD0019F969 /* KZHCountdownListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78C3C0520C66FCD0019F969 /* KZHCountdownListManager.swift */; };
 		C792544A20C515BA001D8D52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C792544920C515BA001D8D52 /* AppDelegate.swift */; };
 		C792544C20C515BB001D8D52 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C792544B20C515BB001D8D52 /* ViewController.swift */; };
 		C792544F20C515BB001D8D52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C792544D20C515BB001D8D52 /* Main.storyboard */; };
@@ -18,9 +20,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C78C3BF620C534AA0019F969 /* KZHCountdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KZHCountdown.swift; sourceTree = "<group>"; };
-		C78C3BF820C5354D0019F969 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
-		C78C3BFA20C539DB0019F969 /* Date+Conversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Conversion.swift"; sourceTree = "<group>"; };
+		C78C3BFC20C66A090019F969 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		C78C3BFF20C66E9C0019F969 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		C78C3C0020C66E9C0019F969 /* Date+Conversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Conversion.swift"; sourceTree = "<group>"; };
+		C78C3C0120C66E9C0019F969 /* KZHCountdownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KZHCountdownView.swift; sourceTree = "<group>"; };
+		C78C3C0520C66FCD0019F969 /* KZHCountdownListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KZHCountdownListManager.swift; sourceTree = "<group>"; };
 		C792544620C515BA001D8D52 /* Countdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Countdown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C792544920C515BA001D8D52 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C792544B20C515BB001D8D52 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +45,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C78C3BFE20C66E9C0019F969 /* KZHCountdown */ = {
+			isa = PBXGroup;
+			children = (
+				C78C3BFF20C66E9C0019F969 /* UIView+Extension.swift */,
+				C78C3C0020C66E9C0019F969 /* Date+Conversion.swift */,
+				C78C3C0120C66E9C0019F969 /* KZHCountdownView.swift */,
+				C78C3C0520C66FCD0019F969 /* KZHCountdownListManager.swift */,
+			);
+			path = KZHCountdown;
+			sourceTree = "<group>";
+		};
 		C792543D20C515BA001D8D52 = {
 			isa = PBXGroup;
 			children = (
@@ -60,11 +75,10 @@
 		C792544820C515BA001D8D52 /* Countdown */ = {
 			isa = PBXGroup;
 			children = (
-				C78C3BFA20C539DB0019F969 /* Date+Conversion.swift */,
-				C78C3BF820C5354D0019F969 /* UIView+Extension.swift */,
-				C78C3BF620C534AA0019F969 /* KZHCountdown.swift */,
+				C78C3BFE20C66E9C0019F969 /* KZHCountdown */,
 				C792544920C515BA001D8D52 /* AppDelegate.swift */,
 				C792544B20C515BB001D8D52 /* ViewController.swift */,
+				C78C3BFC20C66A090019F969 /* SecondViewController.swift */,
 				C792544D20C515BB001D8D52 /* Main.storyboard */,
 				C792545020C515BC001D8D52 /* Assets.xcassets */,
 				C792545220C515BC001D8D52 /* LaunchScreen.storyboard */,
@@ -144,11 +158,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C78C3BFD20C66A090019F969 /* SecondViewController.swift in Sources */,
+				C78C3C0320C66E9C0019F969 /* Date+Conversion.swift in Sources */,
 				C792544C20C515BB001D8D52 /* ViewController.swift in Sources */,
+				C78C3C0620C66FCD0019F969 /* KZHCountdownListManager.swift in Sources */,
+				C78C3C0220C66E9C0019F969 /* UIView+Extension.swift in Sources */,
 				C792544A20C515BA001D8D52 /* AppDelegate.swift in Sources */,
-				C78C3BF920C5354D0019F969 /* UIView+Extension.swift in Sources */,
-				C78C3BFB20C539DB0019F969 /* Date+Conversion.swift in Sources */,
-				C78C3BF720C534AA0019F969 /* KZHCountdown.swift in Sources */,
+				C78C3C0420C66E9C0019F969 /* KZHCountdownView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

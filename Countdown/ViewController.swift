@@ -10,11 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    lazy var dateView: KZHCountdown = {
-        let dateView = KZHCountdown()
+    lazy var dateView: KZHCountdownView = {
+        let dateView = KZHCountdownView()
         dateView.endTime = 1528261200
         return dateView
     }()
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,19 +26,20 @@ class ViewController: UIViewController {
         
         dateView.frame = CGRect(x: 100, y: 200, width: 170, height: 40)
         
-        
         let button = UIButton(frame: CGRect(x: 100, y: 100, width: 150, height: 40))
-        button.setTitle("重置时间(模拟刷新)", for: UIControlState.normal)
+        button.setTitle("进入TableView", for: UIControlState.normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         button.backgroundColor = UIColor.blue
         view.addSubview(button)
-        
+
         button.addTarget(self, action: #selector(buttonClick), for: UIControlEvents.touchUpInside)
+        
     }
     
     
     @objc func buttonClick() {
-        dateView.endTime = 1528344000
+        let vc = SecondViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     override func didReceiveMemoryWarning() {

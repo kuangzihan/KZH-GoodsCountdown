@@ -8,20 +8,33 @@
 
 import UIKit
 
-class KZHCountdown: UIView {
+class KZHCountdownView: UIView {
     
     // 定时器
-    fileprivate var timer: Timer?
+    fileprivate var codeTimer:DispatchSourceTimer?
+    // 是否启动定时器
+    var isStartTimer = true
+    
     
     
     // MARK: - 共有
     // MARK: -- 结束时间（传递接口返回的时间戳）
     open var endTime:Double? {
         didSet {
-            if timer == nil {
-                let timer = Timer(timeInterval: 1, target: self, selector: #selector(refreshTime), userInfo: nil, repeats: true)
-                RunLoop.current.add(timer, forMode: RunLoopMode.commonModes)
-                self.timer = timer
+            if isStartTimer == true {
+                if codeTimer != nil { return }
+                
+                let queue = DispatchQueue.global()
+                codeTimer = DispatchSource.makeTimerSource(queue: queue)
+                codeTimer?.schedule(wallDeadline: .now(), repeating: .seconds(1))
+                codeTimer?.setEventHandler { [weak self] in
+                    DispatchQueue.main.async(execute: {
+                        self?.refreshTime()
+                    })
+                }
+                codeTimer?.resume()
+            } else {
+                refreshTime()
             }
         }
     }
@@ -51,6 +64,12 @@ class KZHCountdown: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
+    }
+    
+    
+    convenience init(frame: CGRect, isStartTimer:Bool = true) {
+        self.init(frame: frame)
+        self.isStartTimer = isStartTimer
     }
     
     fileprivate func setupUI() {
@@ -97,8 +116,6 @@ class KZHCountdown: UIView {
             let minute = components.minute,
             let second = components.second else { return }
         
-        print("差值为：\(hour)时\(minute)分\(second)秒")
-        
         if hour < 0 || minute < 0 || second < 0  {
             removeTimer()
             hourLabel.text = "00"
@@ -109,8 +126,6 @@ class KZHCountdown: UIView {
             minuteLabel.text = "\(minute.keepInt())"
             secondLabel.text = "\(second.keepInt())"
         }
-        
-
     }
     
     
@@ -159,11 +174,13 @@ class KZHCountdown: UIView {
     
     // MARK: - 移除Timer
     fileprivate func removeTimer() {
-        timer?.invalidate()
-        timer = nil
+        if codeTimer != nil {
+            codeTimer?.cancel()
+            codeTimer = nil
+        }
     }
-    
-    
+
+
     deinit {
         removeTimer()
     }
